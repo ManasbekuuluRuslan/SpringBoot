@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Update House Page</title>
+</head>
+<style>
+  body{
+    background-image: url("https://pibig.info/uploads/posts/2022-07/1657188071_1-pibig-info-p-krasivii-serii-fon-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  input{
+    background-size: 100px;
+    font-size: 20px;
+    background-color: darkgrey;
+  }
+</style>
+
+<body>
+
+<form th:method="POST" th:action="@{/houses/updateHouse/{id} (id=${editHouse.getId()})}"
+      th:object="${editHouse}">
+
+  <div>
+    <input type="hidden" name="id" th:field="*{id}">
+  </div>
+  <div>
+    <label for="houseType"  style="font-size: 30px">HouseType</label>
+    <select class="form-select" aria-label="Default select example" th:field="*{houseType}" id="houseType">
+      <option value="Barn">Barn</option>
+      <option value="Apartment">Apartment</option>
+      <option value="Castle">Castle</option>
+      <option value="Bungalow">Bungalow</option>
+      <option value="Chalet">Chalet</option>
+      <option value="Colonial">Colonial</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="country" class="form-label" style="font-size: 30px">Country</label>
+    <input type="text" class="form-control" id="country" th:field="*{country}">
+  </div>
+  <div class="mb-3">
+    <label for="image" class="form-label" style="font-size: 30px">Image</label>
+    <input type="text" class="form-control" id="image" th:field="*{imageHouse}">
+  </div>
+
+  <div class="mb-3">
+    <label for="address" class="form-label" style="font-size: 30px">Address</label>
+    <input type="text" class="form-control" id="address" th:field="*{address}">
+  </div>
+
+  <div class="mb-3">
+    <label for="description" class="form-label" style="font-size: 30px">Description</label>
+    <input type="text" class="form-control" id="description" th:field="*{description}">
+  </div>
+  <div class="mb-3">
+    <label for="price" class="form-label" style="font-size: 30px">Price</label>
+    <input type="text" class="form-control" id="price" th:field="*{price}">
+  </div>
+  <div class="mb-3">
+    <label for="room" class="form-label" style="font-size: 30px">Room</label>
+    <input type="text" class="form-control" id="room" th:field="*{room}">
+  </div>
+  <div class="mb-3">
+    <label for="isBooked" class="form-label" style="font-size: 30px">isBooked</label>
+    <input type="text" class="form-control" id="isBooked" th:field="*{isBooked}">
+  </div>
+
+  <div>
+    <label for="agencyId" class="form-label" style="font-size: 30px">AgencyID</label>
+    <input type="text" class="form-control" id="agencyId" th:field="*{agency.id}">
+  </div>
+
+  <button  class="btn btn-primary" type="submit" style="width: 200px; height: 40px">update</button>
+
+</form>
+
+</body>
+</html>

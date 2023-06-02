@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>
+  Rusi
+</h1>
+<form  th:method="POST"  th:action="@{save}" th:object="${newAgency} ">
+
+    <div>
+        <label for="Name">Agency ID</label>
+        <input type="text" th:field="*{id}" id="Name">
+    </div>
+
+</form>
+<form th:method="POST"  th:action="@{save}" th:object="${newCustomer} ">
+
+    <div>
+        <label for="email">Customer ID</label>
+        <input type="text" th:field="*{id}" id="email">
+    </div>
+</form>
+
+
+</body>
+</html>

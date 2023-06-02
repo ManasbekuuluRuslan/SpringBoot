@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>New Agency</title>
+  <style>
+    body{
+      background-image: url("https://pibig.info/uploads/posts/2022-07/1657188071_1-pibig-info-p-krasivii-serii-fon-1.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    input{
+      background-size: 100px;
+      font-size: 20px;
+      background-color: darkgrey;
+    }
+
+  </style>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/agencies/updateAgency/{id} (id=${editAgency.getId()})}"
+      th:object="${editAgency}">
+
+  <div>
+    <label class="white" for="name" style="font-size: 30px">Name</label>
+    <input type="text" th:field="*{name}" id="name">
+  </div>
+
+  <div>
+    <label for="imageAgency" style="font-size: 30px">ImageLink</label>
+    <input type="text" th:field="*{imageAgency}" id="imageAgency">
+  </div>
+
+  <div>
+    <label for="country" style="font-size: 30px">Country</label>
+    <input type="text" th:field="*{country}" id="country">
+  </div>
+  <div>
+    <label for="email" style="font-size: 30px">Email</label>
+    <input type="text" th:field="*{email}" id="email">
+  </div>
+  <div>
+    <label for="phoneNumber" style="font-size: 30px">Phone Number</label>
+    <input type="text" th:field="*{phoneNumber}" id="phoneNumber"
+           title="Please fill in the correct number which exists">
+  </div>
+
+  <button class="btn btn-primary" type="submit" style="width: 200px; height: 40px">UPDATE</button>
+
+</form>
+
+</body>
+</html>

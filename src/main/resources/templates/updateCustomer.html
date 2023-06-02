@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>New Customer</title>
+</head>
+
+
+<style>
+  body{
+    background-image: url("https://pibig.info/uploads/posts/2022-07/1657188071_1-pibig-info-p-krasivii-serii-fon-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  input{
+    background-size: 100px;
+    font-size: 20px;
+    background-color: darkgrey;
+  }
+
+</style>
+<body>
+
+<form th:method="POST" th:action="@{/customers/updateCustomer/{id} (id=${editCustomer.getId()})}"
+      th:object="${editCustomer}">
+  <div>
+    <label for="Name" style="font-size: 30px">Name</label>
+    <input type="text"  th:field="*{name}" id="Name">
+  </div>
+
+  <div>
+    <label for="email" style="font-size: 30px">Email</label>
+    <input type="text"  th:field="*{email}" id="email">
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br>
+  </div>
+  <div>
+    <label for="gender" style="font-size: 30px">Gender</label>
+    <select class="form-select" aria-label="Default select example"  th:field="*{gender}" id="gender">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+  </div>
+  <div>
+    <label for="surname" style="font-size: 30px">SurName</label>
+    <input type="text"  th:field="*{surname}" id="surname">
+  </div>
+
+
+  <div>
+    <label for="phoneNumber" style="font-size: 30px">Phone Number</label>
+    <input type="text"  th:field="*{phoneNumber}" id="phoneNumber"
+           name="phoneNumber"
+           title="Please enter a phone number starting with '+996' and having a length of 13 characters"
+           placeholder="+996XXXXXXXXX">
+
+  </div>
+
+  <div>
+    <label for="dateOfBirth" style="font-size: 30px">Date Of Birth</label>
+    <input type="date" th:field="*{dateOfBirth}" id="dateOfBirth"
+           title="LocalDate cannot be empty or unset please fill in the field!!!">
+  </div>
+
+  <button  class="btn btn-primary" type="submit" style="width: 200px; height: 40px">Update</strong>
+
+  </button>
+</form>
+
+</body>
+</html>

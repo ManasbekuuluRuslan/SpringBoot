@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>New House</title>
+</head>
+<style>
+  body{
+    background-image: url("https://pibig.info/uploads/posts/2022-07/1657188071_1-pibig-info-p-krasivii-serii-fon-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  input{
+    background-size: 100px;
+    font-size: 20px;
+    background-color: darkgrey;
+  }
+</style>
+<body>
+
+<form  th:method="POST" th:action="@{save}" th:object="${newHouse}">
+  <div>
+    <label for="houseType" style="font-size: 30px">HouseType</label>
+    <select class="form-select" aria-label="Default select example" th:field="*{houseType}" id="houseType">
+      <option value="Barn">Barn</option>
+      <option value="Apartment">Apartment</option>
+      <option value="Castle">Castle</option>
+      <option value="Bungalow">Bungalow</option>
+      <option value="Chalet">Chalet</option>
+      <option value="Colonial">Colonial</option>
+    </select>
+  </div>
+  <div>
+    <label for="imageHouse" style="font-size: 30px">ImageLink</label>
+    <input type="text" th:field="*{imageHouse}" id="imageHouse">
+  </div>
+
+  <div>
+    <label for="country" style="font-size: 30px">Country</label>
+    <input type="text" th:field="*{country}" id="country">
+  </div>
+  <div>
+    <label for="address" style="font-size: 30px">Address</label>
+    <input type="text" th:field="*{address}" id="address">
+  </div>
+  <div>
+    <label for="price" style="font-size: 30px">Price</label>
+    <input type="text" th:field="*{price}" id="price">
+  </div>
+  <div>
+    <label for="room" style="font-size: 30px">Room</label>
+    <input type="text" th:field="*{room}" id="room">
+  </div>
+
+  <div>
+    <label for="isBooked" style="font-size: 30px">isBooked</label>
+    <input type="text" th:field="*{isBooked}" id="isBooked">
+  </div>
+  <div>
+    <label for="description" style="font-size: 30px">Description</label>
+    <input type="text" th:field="*{description}" id="description">
+  </div>
+  <div>
+    <label for="agencyId" style="font-size: 30px">Agency_ID</label>
+    <input type="text" th:field="*{agency.id}" id="agencyId">
+  </div>
+
+  <button class="btn btn-primary" type="submit" style="width: 200px; height: 40px">Save House</button>
+
+</form>
+
+</body>
+</html>
